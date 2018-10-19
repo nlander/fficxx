@@ -17,6 +17,7 @@
 module FFICXX.Generate.Type.Class where
 
 import qualified Data.Map                     as M
+import           Data.Semigroup                    ( Semigroup )
 import           Data.Monoid                       ( (<>) )
 --
 import           FFICXX.Generate.Type.Cabal
@@ -170,7 +171,7 @@ staticFuncs = filter isStaticFunc
 --------
 
 newtype ProtectedMethod = Protected { unProtected :: [String] }
-                        deriving (Monoid)
+                        deriving (Semigroup,Monoid)
 
 
 data ClassAlias = ClassAlias { caHaskellName :: String
